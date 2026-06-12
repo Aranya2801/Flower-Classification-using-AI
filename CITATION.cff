@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+message: "If you use FlowerAI or the MBIN architecture in your research, please cite as below."
+type: software
+title: "FlowerAI: Multi-Modal Botanical Intelligence Network"
+abstract: >
+  FlowerAI is a production-grade AI ecosystem for intelligent botanical recognition,
+  disease detection, smart garden assistance, and botanical knowledge retrieval.
+  It introduces the Multi-Modal Botanical Intelligence Network (MBIN), a novel
+  architecture unifying visual perception, environmental sensing, botanical knowledge
+  graphs, and user garden data into a shared representation space.
+version: 1.0.0
+date-released: 2024-06-01
+license: MIT
+repository-code: "https://github.com/your-username/flower-ai"
+url: "https://flowerai.example.com"
+keywords:
+  - flower classification
+  - plant disease detection
+  - multi-modal learning
+  - botanical AI
+  - computer vision
+  - transformer
+  - RAG
+  - knowledge graph
+authors:
+  - family-names: "Your Last Name"
+    given-names: "Your First Name"
+    affiliation: "Your University / Institution"
+    email: your.email@example.com
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+references:
+  - type: article
+    title: "MBIN: A Multi-Modal Architecture for Botanical Intelligence"
+    authors:
+      - family-names: "Your Last Name"
+        given-names: "Your First Name"
+    year: 2024
+    journal: "arXiv preprint"
+  - type: dataset
+    title: "Oxford 102 Flowers"
+    authors:
+      - family-names: "Nilsback"
+        given-names: "Maria-Elena"
+      - family-names: "Zisserman"
+        given-names: "Andrew"
+    year: 2008
+    url: "https://www.robots.ox.ac.uk/~vgg/data/flowers/102/"

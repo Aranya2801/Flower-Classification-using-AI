@@ -1,0 +1,18 @@
+name: flower-ai
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+  - pip=24.0
+  - cudatoolkit=12.1
+  - nodejs=20
+  - git
+  - curl
+  - make
+
+  - pip:
+    - -r requirements.txt

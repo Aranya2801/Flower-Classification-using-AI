@@ -1,0 +1,103 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# pyproject.toml — FlowerAI project configuration
+# ═══════════════════════════════════════════════════════════════════════════
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  | \.git
+  | \.venv
+  | venv
+  | node_modules
+  | infrastructure
+  | mobile
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+known_first_party = ["src", "configs"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = ["E", "F", "W", "I", "N", "B", "C", "UP", "ANN001", "ANN002"]
+ignore = ["E501", "B008", "ANN001", "ANN002", "ANN201", "ANN202", "ANN204"]
+exclude = [".git", ".venv", "venv", "node_modules", "infrastructure", "mobile", "*.pyi"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = false
+warn_unused_configs = true
+ignore_missing_imports = true
+no_strict_optional = true
+exclude = ["mobile/", "infrastructure/", "frontend/"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-v",
+    "--tb=short",
+    "--strict-markers",
+    "-p", "no:warnings",
+]
+markers = [
+    "slow: marks tests as slow (deselect with -m 'not slow')",
+    "gpu: marks tests requiring GPU",
+    "integration: marks integration tests requiring running services",
+    "e2e: marks end-to-end tests",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+]
+
+[tool.coverage.run]
+source = ["src"]
+omit = [
+    "*/tests/*",
+    "*/__pycache__/*",
+    "*/migrations/*",
+    "src/api/routers/_extra_routers.py",
+]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+fail_under = 70
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if TYPE_CHECKING:",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "@abstractmethod",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "flowerai"
+version = "1.0.0"
+description = "Multi-Modal Botanical Intelligence Network"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
