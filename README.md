@@ -134,13 +134,13 @@ graph TB
     end
 
     subgraph "FastAPI Backend"
-        PREDICT[/predict - Classification]
-        DISEASE[/disease - Detection]
-        CHAT[/chatbot - RAG]
-        RECOM[/recommend - Similarity]
-        GROWTH[/growth - Forecasting]
-        VIDEO[/video - Analytics]
-        XAI[/explain - XAI Dashboard]
+        PREDICT["predict - Classification"]
+        DISEASE["disease - Detection"]
+        CHAT["chatbot - RAG"]
+        RECOM["recommend - Similarity"]
+        GROWTH["growth - Forecasting"]
+        VIDEO["video - Analytics"]
+        XAI["explain - XAI Dashboard"]
     end
 
     subgraph "AI Models"
